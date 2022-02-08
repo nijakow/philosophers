@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 14:51:32 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 17:07:40 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:29:42 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ bool	philo_take_forks(struct s_philo *philo)
 {
 	if (philo->philos->table_size <= 1)
 		return (false);
-	philo_take_fork(philo, philo->num + ((philo->num % 2) == 0));
-	philo_take_fork(philo, philo->num + ((philo->num % 2) != 0));
+	philo_take_fork(philo, philo->num + (philo->num % 2));
+	philo_take_fork(philo, philo->num + !(philo->num % 2));
 	philo->has_forks = true;
 	return (true);
 }
