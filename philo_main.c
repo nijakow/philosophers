@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:27:39 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 17:28:09 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:33:47 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,14 @@ static void	philo_main(struct s_philo *philo)
 void	*philo_launch(void *void_philo)
 {
 	struct s_philo	*philo;
+	unsigned int	wait_mul;
 
 	philo = void_philo;
-	usleep(((philo->num) % 2) * philo->philos->stats.time_to_eat * 1000);
+
+	wait_mul = philo->num % 2;
+	if (philo->num == 0 && philo->philos->table_size % 2)
+		wait_mul = 2;
+	usleep(wait_mul * philo->philos->stats.time_to_eat * 1000);
 	philo_main(philo);
 	if (philo->has_forks)
 		philo_drop_forks(philo);
