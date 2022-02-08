@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:14:00 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/07 17:52:20 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:35:27 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,5 +120,6 @@ void			philos_start(struct s_philos *philos);
 void			philos_join(struct s_philos *philos);
 struct s_fork	*philos_get_fork(struct s_philos *philos,
 					unsigned int fork);
+void			philos_reap(struct s_philos *philos);
 
 #endif

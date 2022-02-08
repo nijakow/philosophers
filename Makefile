@@ -6,7 +6,7 @@
 #    By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/15 10:08:48 by enijakow          #+#    #+#              #
-#    Updated: 2022/02/07 17:54:55 by enijakow         ###   ########.fr        #
+#    Updated: 2022/02/08 16:36:29 by enijakow         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ philo_sleeping.c \
 philo_startstop.c \
 philo_thinking.c \
 philos_get_fork.c \
+philos_reap.c \
 philos.c
 
 BONUS_SOURCES = \
