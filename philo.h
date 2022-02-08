@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:14:00 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 16:35:27 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:39:33 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ struct s_fork
 
 void			fork_create(struct s_fork *fork);
 void			fork_destroy(struct s_fork *fork);
-bool			fork_take(struct s_fork *fork, int philo, int hand);
+void			fork_take(struct s_fork *fork);
 void			fork_drop(struct s_fork *fork);
 
 enum e_philo_state
@@ -92,7 +92,7 @@ void			philo_start_thinking(struct s_philo *philo,
 void			philo_stop_thinking(struct s_philo *philo);
 void			philo_start_sleeping(struct s_philo *philo);
 void			philo_stop_sleeping(struct s_philo *philo);
-bool			philo_take_forks(struct s_philo *philo);
+void			philo_take_forks(struct s_philo *philo);
 void			philo_drop_forks(struct s_philo *philo);
 bool			philo_maybe_die(struct s_philo *philo, unsigned long time);
 void			*philo_main(void *philo);
