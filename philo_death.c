@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 14:55:15 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/07 17:56:57 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:17:29 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	philo_die(struct s_philo *philo)
 
 bool	philo_maybe_die(struct s_philo *philo, unsigned long time)
 {
-	if (time > philo->last_event + philo->philos->stats.time_to_die)
+	if (time > philo->last_eat + philo->philos->stats.time_to_die)
 	{
 		philo_die(philo);
 		return (true);

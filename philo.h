@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:14:00 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 17:07:48 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:16:54 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ struct s_philo
 	unsigned int		num;
 	struct s_clock		clock;
 	enum e_philo_state	state;
+	unsigned long		last_eat;
 	unsigned long		last_event;
 	unsigned long		next_event;
 	int					rounds;
