@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 14:51:32 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 16:42:43 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:55:17 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	philo_drop_fork(struct s_philo *philo, unsigned int fork)
 
 void	philo_take_forks(struct s_philo *philo)
 {
+	// TODO: How to handle deadlocks (e.g. one Philo)? Loop until someone died?
 	philo_take_fork(philo, philo->num + ((philo->num % 2) == 0));
 	philo_take_fork(philo, philo->num + ((philo->num % 2) != 0));
 	philo->has_forks = true;

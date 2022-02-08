@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:27:39 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 16:49:15 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:03:29 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,32 @@ static void	philo_main_decision(struct s_philo *philo, unsigned long time)
 	}
 }
 
-void	*philo_main(void *void_philo)
+static void	philo_main(struct s_philo *philo)
 {
-	struct s_philo	*philo;
 	unsigned long	time;
-
-	philo = void_philo;
-	usleep(((philo->num) % 2) * philo->philos->stats.time_to_eat * 1000);
+	
 	time = clock_now(&philo->clock);
 	philo->last_event = time;
 	philo->next_event = time;
 	while ((!philo->philos->has_someone_died)
 		&& philo->state != STATE_FINISHED)
 	{
-		if (philo_maybe_die(philo, time))
-			;
-		else if (time >= philo->next_event)
+		if (time >= philo->next_event)
 		{
 			philo_main_decision(philo, time);
 		}
 		usleep(50);
 		time = clock_now(&philo->clock);
 	}
+}
+
+void	*philo_launch(void *void_philo)
+{
+	struct s_philo	*philo;
+
+	philo = void_philo;
+	usleep(((philo->num) % 2) * philo->philos->stats.time_to_eat * 1000);
+	philo_main(philo);
 	if (philo->has_forks)
 		philo_drop_forks(philo);
 	return (NULL);

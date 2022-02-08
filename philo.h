@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:14:00 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 16:39:33 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:03:11 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void			philo_stop_sleeping(struct s_philo *philo);
 void			philo_take_forks(struct s_philo *philo);
 void			philo_drop_forks(struct s_philo *philo);
 bool			philo_maybe_die(struct s_philo *philo, unsigned long time);
-void			*philo_main(void *philo);
+void			*philo_launch(void *philo);
 void			philo_start(struct s_philo *philo);
 void			philo_join(struct s_philo *philo);
 
