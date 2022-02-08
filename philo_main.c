@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:27:39 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 18:43:00 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 19:11:00 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	*philo_launch(void *void_philo)
 	unsigned int	wait_mul;
 
 	philo = void_philo;
-	while (philo->philos->start_time == 0)
+	while (!philo->philos->matrix_start)
 		usleep(50);
 	wait_mul = philo->num % 2;
 	if (philo->num == 0 && philo->philos->table_size % 2)
