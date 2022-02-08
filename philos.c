@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:47:25 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/07 17:51:43 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:43:14 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	philos_create(struct s_philos *philos)
 	unsigned int	x;
 
 	pthread_mutex_init(&philos->mutex, NULL);
+	clock_create(&philos->clock);
+	philos->start_time = 0;
 	philos->has_someone_died = false;
 	philos->table_size = philos->stats.philo_count;
 	philos->entries = malloc(sizeof(struct s_philos_entry)
@@ -38,6 +40,7 @@ void	philos_destroy(struct s_philos *philos)
 	unsigned int	x;
 
 	pthread_mutex_destroy(&philos->mutex);
+	clock_destroy(&philos->clock);
 	if (philos->entries != NULL)
 	{
 		x = 0;
@@ -60,6 +63,7 @@ void	philos_start(struct s_philos *philos)
 		philo_start(&philos->entries[x].philo);
 		x = x + 1;
 	}
+	philos->start_time = clock_now(&philos->clock);
 }
 
 void	philos_join(struct s_philos *philos)

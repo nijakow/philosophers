@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:14:00 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 18:16:54 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:42:25 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ struct s_philo
 	pthread_t			thread;
 	struct s_philos		*philos;
 	unsigned int		num;
-	struct s_clock		clock;
 	enum e_philo_state	state;
 	unsigned long		last_eat;
 	unsigned long		last_event;
@@ -108,6 +107,8 @@ struct s_philos_entry
 
 struct s_philos
 {
+	struct s_clock			clock;
+	unsigned long			start_time;
 	pthread_mutex_t			mutex;
 	bool					has_someone_died;
 	struct s_stats			stats;

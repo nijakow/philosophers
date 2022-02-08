@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:08:34 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 18:17:56 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:40:35 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	philo_start_eating(struct s_philo *philo, unsigned long time)
 {
 	if (philo_take_forks(philo))
 	{
-		time = clock_now(&philo->clock);
+		time = clock_now(&philo->philos->clock);
 		philo->state = STATE_EATING;
 		philo->last_event = time;
 		philo->last_eat = time;

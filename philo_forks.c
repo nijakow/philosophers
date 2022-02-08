@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 14:51:32 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 17:29:42 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:40:43 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	philo_take_fork(struct s_philo *philo, unsigned int fork)
 	pthread_mutex_lock(&philo->philos->mutex);
 	if (!philo->philos->has_someone_died)
 		printf("%lu %u has taken a fork\n",
-			clock_now(&philo->clock),
+			clock_now(&philo->philos->clock),
 			philo->num);
 	pthread_mutex_unlock(&philo->philos->mutex);
 }
