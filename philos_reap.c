@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:33:42 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 17:04:26 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:13:37 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,23 @@ static void	make_someone_die(struct s_philos *philos)
 
 void	philos_reap(struct s_philos *philos)
 {
+	bool			running;
 	unsigned int	x;
 	struct s_philo	*philo;
 
-	while (!did_someone_die(philos))
+	running = true;
+	while (!did_someone_die(philos) && running)
 	{
+		running = false;
 		x = 0;
 		while (x < philos->table_size)
 		{
 			philo = &philos->entries[x].philo;
-			philo_maybe_die(philo, clock_now(&philo->clock));
+			if (philo->state != STATE_FINISHED)
+			{
+				running = true;
+				philo_maybe_die(philo, clock_now(&philo->clock));
+			}
 			x = x + 1;
 		}
 	}
