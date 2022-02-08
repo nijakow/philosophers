@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:27:39 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 17:49:35 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:03:16 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	*philo_launch(void *void_philo)
 	time = clock_now(&philo->clock);
 	philo->last_event = time;
 	philo->next_event = time + wait_mul * philo->philos->stats.time_to_eat / 2;
-	usleep(wait_mul * philo->philos->stats.time_to_eat * 500);
 	philo_main(philo, time);
 	if (philo->has_forks)
 		philo_drop_forks(philo);
