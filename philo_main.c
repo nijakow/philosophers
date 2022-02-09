@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:27:39 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 14:12:56 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:19:44 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	philo_main(struct s_philo *philo, unsigned long time)
 		}
 		usleep(50);
 		time = clock_now(&philo->philos->clock);
+		philo_maybe_die(philo, time);
 	}
 }
 
