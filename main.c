@@ -6,11 +6,24 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:13:50 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 13:49:40 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:02:12 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	calc_stats(struct s_stats *stats)
+{
+	if (stats->philo_count % 2)
+		stats->flanks = 3;
+	else
+		stats->flanks = 2;
+	if (stats->time_to_sleep < (stats->flanks - 1) * stats->time_to_eat)
+		stats->round_time = stats->time_to_eat * stats->flanks;
+	else
+		stats->round_time = stats->time_to_sleep
+			- (stats->flanks - 2) * stats->time_to_eat;
+}
 
 bool	setup_stats(struct s_stats *stats, int argc, char **argv)
 {
@@ -26,14 +39,7 @@ bool	setup_stats(struct s_stats *stats, int argc, char **argv)
 		result = result && ft_atoi(argv[5], &stats->steps);
 	else
 		stats->steps = -1;
-	if (stats->philo_count % 2)
-		stats->flanks = 3;
-	else
-		stats->flanks = 2;
-	if (stats->time_to_sleep < (stats->flanks - 1) * stats->time_to_eat)
-    	stats->round_time = stats->time_to_eat * stats->flanks;     // TODO: Double-check this
-	else
-    	stats->round_time = stats->time_to_sleep - (stats->flanks - 2) * stats->time_to_eat;	// TODO: Double-check this
+	calc_stats(stats);
 	return (result);
 }
 
