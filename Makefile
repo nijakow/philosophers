@@ -6,7 +6,7 @@
 #    By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/15 10:08:48 by enijakow          #+#    #+#              #
-#    Updated: 2022/02/09 13:29:36 by enijakow         ###   ########.fr        #
+#    Updated: 2022/02/09 16:53:55 by enijakow         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ BONUS_SOURCES = \
 
 
 CFLAGS = -Wall -Wextra -Werror
-LDFLAGS = 
+LDFLAGS = -lpthread
 
 
 OBJECTS = $(patsubst %.c, %.o, $(SOURCES))

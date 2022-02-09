@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:13:50 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 14:02:12 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:53:08 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(int argc, char *argv[])
 	{
 		philos_create(&philos);
 		philos_start(&philos);
-		philos_reap(&philos);
+		//philos_reap(&philos);
 		philos_join(&philos);
 		philos_destroy(&philos);
 	}

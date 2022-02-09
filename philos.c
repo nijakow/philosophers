@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:47:25 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 19:10:49 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:50:04 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	philos_create(struct s_philos *philos)
 	unsigned int	x;
 
 	pthread_mutex_init(&philos->mutex, NULL);
+	pthread_mutex_init(&philos->start_mutex, NULL);
 	clock_create(&philos->clock);
 	philos->start_time = 0;
-	philos->matrix_start = false;
 	philos->has_someone_died = false;
 	philos->table_size = philos->stats.philo_count;
 	philos->entries = malloc(sizeof(struct s_philos_entry)
@@ -41,6 +41,7 @@ void	philos_destroy(struct s_philos *philos)
 	unsigned int	x;
 
 	pthread_mutex_destroy(&philos->mutex);
+	pthread_mutex_destroy(&philos->start_mutex);
 	clock_destroy(&philos->clock);
 	if (philos->entries != NULL)
 	{
@@ -58,6 +59,7 @@ void	philos_start(struct s_philos *philos)
 {
 	unsigned int	x;
 
+	pthread_mutex_lock(&philos->start_mutex);
 	x = 0;
 	while (x < philos->table_size)
 	{
@@ -65,7 +67,7 @@ void	philos_start(struct s_philos *philos)
 		x = x + 1;
 	}
 	philos->start_time = clock_now(&philos->clock);
-	philos->matrix_start = true;
+	pthread_mutex_unlock(&philos->start_mutex);
 }
 
 void	philos_join(struct s_philos *philos)

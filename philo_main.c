@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:27:39 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 14:19:44 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:50:56 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	*philo_launch(void *void_philo)
 	struct s_philo	*philo;
 
 	philo = void_philo;
-	while (!philo->philos->matrix_start)
-		usleep(50);
+	pthread_mutex_lock(&philo->philos->start_mutex);
+	pthread_mutex_unlock(&philo->philos->start_mutex);
 	time = philo->philos->start_time;
 	philo->last_eat = time;
 	philo->last_event = time;

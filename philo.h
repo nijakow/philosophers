@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:14:00 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 14:11:02 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:49:43 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ struct s_philos
 	struct s_clock			clock;
 	unsigned long			start_time;
 	pthread_mutex_t			mutex;
-	bool					matrix_start;
+	pthread_mutex_t			start_mutex;
 	bool					has_someone_died;
 	struct s_stats			stats;
 	struct s_philos_entry	*entries;
