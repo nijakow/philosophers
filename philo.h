@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:14:00 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 13:09:48 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:32:45 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ struct s_philo
 	unsigned long		last_eat;
 	unsigned long		last_event;
 	unsigned long		next_event;
-	int					rounds;
+	unsigned int		rounds;
+	int					times_eaten;
 	bool				has_forks;
 };
 

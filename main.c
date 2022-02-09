@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:13:50 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 13:28:38 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:30:42 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	setup_stats(struct s_stats *stats, int argc, char **argv)
 	if (stats->time_to_sleep < (stats->flanks - 1) * stats->time_to_eat)
     	stats->round_time = stats->time_to_eat * stats->flanks;
 	else
-    	stats->round_time = stats->
+    	perror("Ouch");
 	return (result);
 }
 

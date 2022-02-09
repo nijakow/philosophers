@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:08:34 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 19:12:42 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:32:03 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	philo_start_eating(struct s_philo *philo, unsigned long time)
 		if (!philo->philos->has_someone_died)
 			printf("%lu %d is eating\n", time, philo->num);
 		pthread_mutex_unlock(&philo->philos->mutex);
-		philo->rounds++;
+		philo->times_eaten++;
 	}
 }

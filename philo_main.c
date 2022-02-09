@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:27:39 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 13:08:42 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:32:24 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 static void	philo_main_decision(struct s_philo *philo, unsigned long time)
 {
-	if ((philo->rounds >= philo->philos->stats.steps)
+	if ((philo->times_eaten >= philo->philos->stats.steps)
 		&& philo->philos->stats.steps >= 0)
 	{
 		philo->state = STATE_FINISHED;
 	}
 	else if (philo->state == STATE_SLEEPING)
 	{
+		philo->rounds++;
 		philo_start_thinking(philo, time);
 	}
 	else if (philo->state == STATE_THINKING)
