@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:27:39 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 13:36:02 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:38:59 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,10 @@ void	*philo_launch(void *void_philo)
 {
 	unsigned long	time;
 	struct s_philo	*philo;
-	unsigned int	wait_mul;
 
 	philo = void_philo;
 	while (!philo->philos->matrix_start)
 		usleep(50);
-	if (philo->num % 2 == 0)
-		wait_mul = 0;
-	else if (philo->num % 2 == 1)
-		wait_mul = philo->philos->stats.time_to_eat / 2;
-	wait_mul = philo->num % 2;
 	time = philo->philos->start_time;
 	philo->last_eat = time;
 	philo->last_event = time;
