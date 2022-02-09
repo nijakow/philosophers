@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:14:00 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 13:08:12 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:09:48 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ struct s_stats
 	int	time_to_die;
 	int	steps;
 	int flanks;
+	int round_time;
 };
 
 struct s_clock

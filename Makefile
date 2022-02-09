@@ -6,7 +6,7 @@
 #    By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/15 10:08:48 by enijakow          #+#    #+#              #
-#    Updated: 2022/02/08 16:36:29 by enijakow         ###   ########.fr        #
+#    Updated: 2022/02/09 13:29:36 by enijakow         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ philo_main.c \
 philo_sleeping.c \
 philo_startstop.c \
 philo_thinking.c \
+philo_times.c \
 philos_get_fork.c \
 philos_reap.c \
 philos.c
