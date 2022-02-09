@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:27:39 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 13:38:59 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:12:56 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	*philo_launch(void *void_philo)
 	philo->last_event = time;
 	philo->next_event = philo_next_eat(philo);
 	philo_main(philo, time);
-	if (philo->has_forks)
+	if (philo->has_left_fork || philo->has_right_fork)
 		philo_drop_forks(philo);
 	return (NULL);
 }

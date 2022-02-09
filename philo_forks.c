@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 14:51:32 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 18:40:43 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:13:31 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,25 @@ static void	philo_drop_fork(struct s_philo *philo, unsigned int fork)
 
 bool	philo_take_forks(struct s_philo *philo)
 {
+	if (!philo->has_left_fork)
+		philo_take_fork(philo, philo->num + (philo->num % 2));
+	philo->has_left_fork = true;
 	if (philo->philos->table_size <= 1)
+	{
 		return (false);
-	philo_take_fork(philo, philo->num + (philo->num % 2));
-	philo_take_fork(philo, philo->num + !(philo->num % 2));
-	philo->has_forks = true;
+	}
+	if (!philo->has_right_fork)
+		philo_take_fork(philo, philo->num + !(philo->num % 2));
+	philo->has_right_fork = true;
 	return (true);
 }
 
 void	philo_drop_forks(struct s_philo *philo)
 {
-	philo_drop_fork(philo, philo->num + ((philo->num % 2) == 0));
-	philo_drop_fork(philo, philo->num + ((philo->num % 2) != 0));
-	philo->has_forks = false;
+	if (philo->has_left_fork)
+		philo_drop_fork(philo, philo->num + ((philo->num % 2) == 0));
+	philo->has_left_fork = false;
+	if (philo->has_right_fork)
+		philo_drop_fork(philo, philo->num + ((philo->num % 2) != 0));
+	philo->has_right_fork = false;
 }
