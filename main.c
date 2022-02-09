@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:13:50 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 16:35:47 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:08:00 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ bool	setup_stats(struct s_stats *stats, int argc, char **argv)
 		result = result && ft_atoi(argv[5], &stats->steps);
 	else
 		stats->steps = -1;
+	if (stats->philo_count % 2)
+		stats->flanks = 3;
+	else
+		stats->flanks = 2;
 	return (result);
 }
 

@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:14:00 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/08 19:10:26 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:08:12 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ struct s_stats
 	int	time_to_eat;
 	int	time_to_die;
 	int	steps;
+	int flanks;
 };
 
 struct s_clock
@@ -69,6 +70,7 @@ struct s_philo
 	pthread_t			thread;
 	struct s_philos		*philos;
 	unsigned int		num;
+	unsigned int		flank;
 	enum e_philo_state	state;
 	unsigned long		last_eat;
 	unsigned long		last_event;
