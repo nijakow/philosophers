@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:14:00 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 13:32:45 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:36:28 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,9 @@ void			philo_create(struct s_philo *philo,
 					unsigned int num);
 void			philo_destroy(struct s_philo *philo);
 void			philo_destroy(struct s_philo *philo);
+unsigned long	philo_next_eat(struct s_philo *philo);
+unsigned long	philo_next_sleep(struct s_philo *philo);
+unsigned long	philo_next_think(struct s_philo *philo);
 void			philo_change_state(struct s_philo *philo,
 					enum e_philo_state state);
 void			philo_start_eating(struct s_philo *philo,

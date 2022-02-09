@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:38:18 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 13:31:20 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:36:21 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	philo_create(struct s_philo *philo,
 {
 	philo->philos = philos;
 	philo->num = num;
-	philo->state = STATE_SLEEPING;
+	philo->state = STATE_THINKING;
 	philo->rounds = 0;
 	philo->times_eaten = 0;
 	philo->has_forks = false;
