@@ -14,5 +14,5 @@
 
 void	philo_destroy(struct s_philo *philo)
 {
-	philo = NULL;
+	(void) philo;
 }

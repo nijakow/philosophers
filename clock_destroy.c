@@ -14,5 +14,5 @@
 
 void	clock_destroy(struct s_clock *clock)
 {
-	clock = NULL;
+	(void) clock;
 }

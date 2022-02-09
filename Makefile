@@ -43,7 +43,7 @@ BONUS_SOURCES = \
 
 
 CFLAGS = -Wall -Wextra -Werror
-LDFLAGS = -lpthread
+LDFLAGS = -pthread -lpthread
 
 
 OBJECTS = $(patsubst %.c, %.o, $(SOURCES))
