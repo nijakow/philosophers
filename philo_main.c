@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:27:39 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/09 16:50:56 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/10 17:38:38 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,19 @@ static void	philo_main_decision(struct s_philo *philo, unsigned long time)
 	}
 }
 
+static bool	did_someone_die(struct s_philos *philos)
+{
+	bool	value;
+
+	pthread_mutex_lock(&philos->mutex);
+	value = philos->has_someone_died;
+	pthread_mutex_unlock(&philos->mutex);
+	return (value);
+}
+
 static void	philo_main(struct s_philo *philo, unsigned long time)
 {	
-	while ((!philo->philos->has_someone_died)
+	while (!did_someone_die(philo->philos)
 		&& philo->state != STATE_FINISHED)
 	{
 		if (time >= philo->next_event)
