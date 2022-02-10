@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:16:06 by enijakow          #+#    #+#             */
-/*   Updated: 2022/02/07 17:44:46 by enijakow         ###   ########.fr       */
+/*   Updated: 2022/02/10 17:34:30 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,6 @@ static void	ft_atoi_primer(char **str, int *sign)
 	ft_atoi_skipspace(str);
 	if (**str == '+')
 		(*str)++;
-	else if (**str == '-')
-	{
-		*sign = -1;
-		(*str)++;
-	}
 }
 
 int	ft_atoi(char *str, int *v)
